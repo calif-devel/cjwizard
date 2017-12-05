@@ -1,0 +1,8 @@
+
+description = 'CJWizard Demos'
+dependencies {
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.21'
+  compile project(':cjwizard')
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+    testCompile group: 'org.slf4j', name: 'slf4j-simple', version:'1.7.21'
+}

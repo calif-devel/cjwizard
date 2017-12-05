@@ -1,0 +1,6 @@
+rootProject.name = 'cjwizard-parent'
+include ':cjwizard'
+include ':cjwizard-demo'
+
+project(':cjwizard').projectDir = "$rootDir/cjwizard" as File
+project(':cjwizard-demo').projectDir = "$rootDir/cjwizard-demo" as File

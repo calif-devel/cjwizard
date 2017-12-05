@@ -301,7 +301,11 @@ public abstract class WizardPage extends JPanel {
       return _namedComponents;
    }
 
-   /**
+   public boolean isScrollable() {
+      return false;
+   }
+
+    /**
     * Listener to keep track of the components as they are added and removed
     * from this wizard page.
     * 

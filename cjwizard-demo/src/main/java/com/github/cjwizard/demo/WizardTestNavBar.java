@@ -21,14 +21,12 @@ import com.github.cjwizard.WizardListener;
 import com.github.cjwizard.WizardPage;
 import com.github.cjwizard.WizardSettings;
 import com.github.cjwizard.pagetemplates.TitledPageTemplate;
-import java.awt.Color;
-import java.awt.Dimension;
+
+import java.awt.*;
 import java.util.List;
 import java.util.logging.Logger;
-import javax.swing.AbstractListModel;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.*;
+
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
@@ -163,13 +161,13 @@ public class WizardTestNavBar extends javax.swing.JDialog {
         jListNavigation.setEnabled(false);
         jScrollPane1.setViewportView(jListNavigation);
 
-        
         // Set up the standard bookkeeping stuff for a dialog, and
         // add the wizard to the JDialog:
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
+
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -245,10 +243,24 @@ public class WizardTestNavBar extends javax.swing.JDialog {
             },
             new WizardPage("Three", "Third Page") {
                 {
-                    add(new JLabel("Three!"));
+                    setLayout(new GridLayout(10, 1));
+                    add(new JLabel("1. Three!"));
+                    add(new JLabel("2. Three!"));
+                    add(new JLabel("3. Three!"));
+                    add(new JLabel("4. Three!"));
+                    add(new JLabel("5. Three!"));
+                    add(new JLabel("6. Three!"));
+                    add(new JLabel("7. Three!"));
+                    add(new JLabel("8. Three!"));
+                    add(new JLabel("9. Three!"));
+                    add(new JLabel("10. Three!"));
                     setBackground(Color.green);
                 }
 
+                @Override
+                public boolean isScrollable() {
+                    return true;
+                }
             },
             new WizardPage("Four", "Third Page") {
                 {

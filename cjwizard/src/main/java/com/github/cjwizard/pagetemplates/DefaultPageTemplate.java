@@ -16,12 +16,16 @@
 package com.github.cjwizard.pagetemplates;
 
 import java.awt.CardLayout;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import com.github.cjwizard.WizardContainer;
 import com.github.cjwizard.WizardPage;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.swing.JScrollPane;
 
 /**
  * This class provides a point at which third-party code can
@@ -41,6 +45,8 @@ public class DefaultPageTemplate extends PageTemplate {
    private final Logger log = LoggerFactory.getLogger(WizardContainer.class);
    
    private final CardLayout _layout = new CardLayout();
+
+   private final Map<WizardPage, JScrollPane> scrollablePages = new LinkedHashMap<>();
    
    public DefaultPageTemplate(){
       this.setLayout(_layout);
@@ -54,9 +60,18 @@ public class DefaultPageTemplate extends PageTemplate {
 
       // remove the page, just in case it was added before:
       remove(page);
+      if (scrollablePages.containsKey(page)) {
+         remove(scrollablePages.remove(page));
+      }
       validate();
-      
-      add(page, page.getId());
+
+      if (page.isScrollable()) {
+         JScrollPane jScrollPane = new JScrollPane(page);
+         scrollablePages.put(page, jScrollPane);
+         add(jScrollPane, page.getId());
+      } else {
+         add(page, page.getId());
+      }
       _layout.show(this, page.getId());
    }
 }
