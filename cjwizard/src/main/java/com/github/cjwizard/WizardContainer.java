@@ -510,7 +510,7 @@ public class WizardContainer extends JPanel implements WizardController {
    }
 
    /**
-    * @param nextPage
+    * @param curPage
     * @param path
     */
    private void firePageChanged(WizardPage curPage, List<WizardPage> path) {

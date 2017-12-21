@@ -43,7 +43,7 @@ public class DefaultPageTemplate extends PageTemplate {
     * Log instance
     */
    private final Logger log = LoggerFactory.getLogger(WizardContainer.class);
-   
+
    private final CardLayout _layout = new CardLayout();
 
    private final Map<WizardPage, JScrollPane> scrollablePages = new LinkedHashMap<>();
