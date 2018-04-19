@@ -162,7 +162,7 @@ public abstract class WizardPage extends JPanel {
       } else if (c instanceof JComboBox){
          val = ((JComboBox) c).getSelectedItem();
       } else if (c instanceof JList){
-         val = ((JList) c).getSelectedValues();
+         val = ((JList) c).getSelectedValuesList();
       } else {
          log.warn("Unknown component: "+c);
       }

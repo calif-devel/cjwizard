@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright 2008  Eugene Creswick
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,6 +28,8 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import org.slf4j.Logger;
@@ -274,14 +276,18 @@ public class WizardContainer extends JPanel implements WizardController {
     * Add additional buttons to the wizard controls. Any previously-added
     * buttons are cleared on each call to this method.
     * 
-    * @param buttons
-    *           The buttons to add to the wizard controls.
+    * @param components
+    *           The components to add to the wizard controls. Only JButtons or JLabels are added, other components are
+    *           ignored.
     */
-   public void setButtons(JButton... buttons) {
+   public void setButtons(JComponent... components) {
       _extraButtonPanel.removeAll();
-      for (JButton button : buttons) {
-         _extraButtonPanel.add(button);
-         _extraButtonPanel.add(Box.createHorizontalStrut(10));
+
+      for (JComponent component : components) {
+         if (component instanceof JButton || component instanceof JLabel) {
+            _extraButtonPanel.add(component);
+            _extraButtonPanel.add(Box.createHorizontalStrut(10));
+         }
       }
    }
 

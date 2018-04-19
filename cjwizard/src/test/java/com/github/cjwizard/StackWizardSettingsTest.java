@@ -5,7 +5,7 @@ package com.github.cjwizard;
 
 import java.util.Set;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.junit.Test;
 
@@ -19,7 +19,7 @@ import com.github.cjwizard.WizardSettings;
 public class StackWizardSettingsTest {
 
    /**
-    * Test method for {@link com.github.cjwizard.StackWizardSettings#rollBack(java.lang.String)}.
+    * Test method for {@link com.github.cjwizard.StackWizardSettings#rollBack()}.
     */
    @Test
    public void testRollBack() {
@@ -116,8 +116,8 @@ public class StackWizardSettingsTest {
    }
 
    /**
-    * @param oracle1
-    * @param keys
+    * @param oracle db of strings
+    * @param keys a set of keys to test with
     */
    private void assertEquals(String[] oracle, Set<String> keys) {
       Assert.assertEquals("Set is wrong size", oracle.length, keys.size());
